@@ -1,4 +1,5 @@
-﻿using MyFinancas.VIEWS.MVVM.ViewModels;
+﻿using MyFinancas.MODEL.Tools;
+using MyFinancas.VIEWS.MVVM.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,10 +22,12 @@ namespace MyFinancas.VIEWS
     /// </summary>
     public partial class MainWindow : Window
     {
+        VersionManager _versionManager = new VersionManager();
         public MainWindow()
         {
             InitializeComponent();
             DataContext = new ResumoVM();
+            GetVersion();
         }
         private void btnResumo_Click(object sender, RoutedEventArgs e)
         {
@@ -39,6 +42,11 @@ namespace MyFinancas.VIEWS
         private void btnDespesas_Click(object sender, RoutedEventArgs e)
         {
             DataContext = new DespesasVM();
+        }
+
+        public void GetVersion()
+        {
+            lblVersion.Text = _versionManager.Version;
         }
     }
 }

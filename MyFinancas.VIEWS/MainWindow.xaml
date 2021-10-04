@@ -66,6 +66,10 @@
                          Height="50"
                          VerticalContentAlignment="Center"
                          Style="{StaticResource MenuButtonTheme}" Click="btnDespesas_Click"/>
+            <TextBlock Height="24"
+                       Foreground="Black"
+                       FontSize="10"
+                       x:Name="lblVersion"/>
         </StackPanel>
 
         <ContentControl Content="{Binding}" Grid.Column="1" Grid.Row="1"/>

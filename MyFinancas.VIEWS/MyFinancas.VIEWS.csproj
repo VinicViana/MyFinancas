@@ -10,4 +10,8 @@
     <Folder Include="MVVM\Models\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\MyFinancas.MODEL\MyFinancas.MODEL.csproj" />
+  </ItemGroup>
+
 </Project>
