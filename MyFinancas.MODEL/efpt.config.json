@@ -18,10 +18,6 @@
          "ObjectType": 0
       },
       {
-         "Name": "[dbo].[movimentacao_usuario]",
-         "ObjectType": 0
-      },
-      {
          "Name": "[dbo].[usuario]",
          "ObjectType": 0
       }
@@ -30,7 +26,7 @@
    "UseBoolPropertiesWithoutDefaultSql": false,
    "UseDatabaseNames": false,
    "UseDbContextSplitting": false,
-   "UseFluentApiOnly": true,
+   "UseFluentApiOnly": false,
    "UseHandleBars": false,
    "UseInflector": false,
    "UseLegacyPluralizer": false,

@@ -6,8 +6,8 @@ using System.Threading.Tasks;
 
 namespace MyFinancas.MODEL.Tools
 {
-    public class VersionManager
+    public static class VersionManager
     {
-        public string Version = "0";
+        public static string Version = "Versão: 1.00 beta";
     }
 }

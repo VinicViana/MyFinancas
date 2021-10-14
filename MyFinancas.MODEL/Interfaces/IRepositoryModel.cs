@@ -8,9 +8,10 @@ namespace MyFinancas.MODEL.Interfaces
 {
     public interface IRepositoryModel<T> : IDisposable where T : class
     {
-        public void Cadastrar(T objeto);
-        public void Alterar(T objeto);
+        public T Cadastrar(T objeto);
+        public T Alterar(T objeto);
         public void Excluir(T objeto);
         public List<T> ListarTodos();
+        public T SelecionarPK(params object[] variavel);
     }
 }

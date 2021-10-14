@@ -27,8 +27,9 @@
         </Grid.ColumnDefinitions>
 
         <Grid.RowDefinitions>
-            <RowDefinition  Height="70"/>
+            <RowDefinition  Height="45"/>
             <RowDefinition/>
+            <RowDefinition Height="20"/>
         </Grid.RowDefinitions>
 
         <TextBlock Text="MyFinanças"
@@ -43,7 +44,7 @@
                          Uid="Resumo"
                          IsChecked="True"
                          Grid.Row="1"
-                         FontSize="20"
+                         FontSize="15"
                          HorizontalContentAlignment="Left"
                          Height="50"
                          VerticalContentAlignment="Center"
@@ -52,7 +53,7 @@
             <RadioButton x:Name="btnGanhos"
                          Uid="Ganhos"
                         Grid.Row="1"
-                         FontSize="20"
+                         FontSize="15"
                          HorizontalContentAlignment="Left"
                          Height="50"
                          VerticalContentAlignment="Center"
@@ -61,17 +62,28 @@
             <RadioButton Name="btnDespesas"
                          Uid="Despesas"
                          Grid.Row="1"
-                         FontSize="20"
+                         FontSize="15"
                          HorizontalContentAlignment="Left"
                          Height="50"
                          VerticalContentAlignment="Center"
                          Style="{StaticResource MenuButtonTheme}" Click="btnDespesas_Click"/>
-            <TextBlock Height="24"
-                       Foreground="Black"
-                       FontSize="10"
-                       x:Name="lblVersion"/>
         </StackPanel>
 
-        <ContentControl Content="{Binding}" Grid.Column="1" Grid.Row="1"/>
+        <StackPanel Grid.Column="0" Grid.Row="2" Grid.ColumnSpan="1" Name="SPanelVersion"
+                    Background="Blue">
+            <TextBlock Height="24"
+                       FontSize="10"
+                       x:Name="lblVersion"
+                       Margin="20 4 0 0"
+                       Foreground="White"/>
+        </StackPanel>
+
+        <StackPanel Grid.Column="1" Grid.Row="2" Grid.ColumnSpan="2" Name="SPanelPrincipal"
+                    Margin="0 0 0 0"
+                    Background="Blue">
+            <TextBlock Text="" Margin="20 4 0 0" Foreground="white"/>
+        </StackPanel>
+
+        <ContentControl Content="{Binding}" Grid.Column="1" Grid.Row="0" Grid.RowSpan="2" Margin="0 0 20 0"/>
     </Grid>
 </Window>

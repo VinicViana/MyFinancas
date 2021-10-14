@@ -8,6 +8,8 @@
 
   <ItemGroup>
     <Folder Include="MVVM\Models\" />
+    <Folder Include="MVVM\Views\Despesas\DespesasUI\" />
+    <Folder Include="MVVM\Views\Resumo\ResumoUI\" />
   </ItemGroup>
 
   <ItemGroup>

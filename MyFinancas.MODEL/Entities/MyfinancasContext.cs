@@ -19,7 +19,6 @@ namespace MyFinancas.MODEL
         }
 
         public virtual DbSet<Movimentacao> Movimentacao { get; set; }
-        public virtual DbSet<MovimentacaoUsuario> MovimentacaoUsuario { get; set; }
         public virtual DbSet<Usuario> Usuario { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -37,85 +36,32 @@ namespace MyFinancas.MODEL
 
             modelBuilder.Entity<Movimentacao>(entity =>
             {
-                entity.HasKey(e => e.Ide);
+                entity.HasKey(e => e.Ide)
+                    .HasName("PK__moviment__C49600216922DC6A");
 
-                entity.ToTable("movimentacao");
+                entity.Property(e => e.Ide).ValueGeneratedNever();
 
-                entity.Property(e => e.Ide)
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
+                entity.Property(e => e.Descricao).IsUnicode(false);
 
-                entity.Property(e => e.Descricao)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
-
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
-
-                entity.Property(e => e.Origem)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength(true);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
                 entity.Property(e => e.Tipo)
-                    .IsRequired()
-                    .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength(true);
-            });
-
-            modelBuilder.Entity<MovimentacaoUsuario>(entity =>
-            {
-                entity.ToTable("movimentacao_usuario");
-
-                entity.Property(e => e.Id).HasColumnName("id");
-
-                entity.Property(e => e.IdeMovimentacao)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .HasColumnName("Ide_Movimentacao");
-
-                entity.Property(e => e.IdeUsuario)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .HasColumnName("Ide_Usuario");
-
-                entity.HasOne(d => d.IdeMovimentacaoNavigation)
-                    .WithMany(p => p.MovimentacaoUsuario)
-                    .HasForeignKey(d => d.IdeMovimentacao)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_movimentacao_usuario_movimentacao");
-
-                entity.HasOne(d => d.IdeUsuarioNavigation)
-                    .WithMany(p => p.MovimentacaoUsuario)
-                    .HasForeignKey(d => d.IdeUsuario)
-                    .OnDelete(DeleteBehavior.ClientSetNull)
-                    .HasConstraintName("FK_movimentacao_usuario_usuario");
             });
 
             modelBuilder.Entity<Usuario>(entity =>
             {
-                entity.HasKey(e => e.Ide);
+                entity.HasKey(e => e.Ide)
+                    .HasName("PK__usuario__C49600214D3D1040");
 
-                entity.ToTable("usuario");
+                entity.Property(e => e.Ide).ValueGeneratedNever();
 
-                entity.Property(e => e.Ide)
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
+                entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
-                entity.Property(e => e.Id)
-                    .ValueGeneratedOnAdd()
-                    .HasColumnName("id");
+                entity.Property(e => e.Nome).IsUnicode(false);
 
-                entity.Property(e => e.Nome)
-                    .IsRequired()
-                    .HasMaxLength(1)
-                    .IsUnicode(false);
+                entity.Property(e => e.Senha).IsUnicode(false);
             });
 
             OnModelCreatingPartial(modelBuilder);

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MyFinancas.MODEL.Repositories;
+using MyFinancas.VIEWS.MVVM.Views.Ganhos.GanhosUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -20,9 +22,24 @@ namespace MyFinancas.VIEWS.MVVM.Views
     /// </summary>
     public partial class Ganhos_View : UserControl
     {
+        RepositoryMovimentacao _repositoryMovimentacao;
         public Ganhos_View()
         {
+            atualizaGrade();
             InitializeComponent();
+        }
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            GanhosUI ganhosUI = new GanhosUI();
+            ganhosUI.Show();
+        }
+
+        private void atualizaGrade()
+        {
+            _repositoryMovimentacao = new RepositoryMovimentacao();
+            grdGanhos.ItemsSource = _repositoryMovimentacao.ListarTodos();
         }
     }
 }
+

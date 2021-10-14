@@ -22,7 +22,6 @@ namespace MyFinancas.VIEWS
     /// </summary>
     public partial class MainWindow : Window
     {
-        VersionManager _versionManager = new VersionManager();
         public MainWindow()
         {
             InitializeComponent();
@@ -46,7 +45,7 @@ namespace MyFinancas.VIEWS
 
         public void GetVersion()
         {
-            lblVersion.Text = _versionManager.Version;
+            lblVersion.Text = VersionManager.Version;
         }
     }
 }
